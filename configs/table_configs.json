@@ -1,0 +1,31 @@
+{
+    "787": {
+        "705": {
+            "table_ids": [ "1", "2", "3", "4"],
+            "table_values": ["A", "B", "C", "D"],
+            "team_ids": ["1", "2", "3", "4", "5", "6", "7", "8"],
+            "team_values": ["Elm Street Billiards Club", "That's My Cue", "Cue Stick Gladiators", "High Q's", "That'll Do", "Breakin' Bad", "Disco Inferno", "No Lucks Given"]
+        },
+        "201": {
+            "table_ids": [ "1", "2", "5", "6", "7", "8", "9", "10"],
+            "table_values": ["2-3", "4-5", "11-12", "13-14", "15-16", "10-17", "18-9", "19-20", "21-22", "28-23"],
+            "team_ids": ["1", "2", "3", "4", "5", "6", "7", "8"],
+            "team_values": ["Elm Street Billiards Club", "That's My Cue", "Cue Stick Gladiators", "High Q's", "That'll Do", "Breakin' Bad", "Disco Inferno", "No Lucks Given"]
+        },
+
+        "048": {
+            "table_ids": [ "1", "2", "5", "6", "7"],
+            "table_values": ["A", "B", "C", "D", "E"],
+            "team_ids": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+            "team_values": ["Early Birds", "The Night Chalkers", "Alkanines", "ATX 9-ilators", "Bangarang", "Shenanifriends", "Chalk Around & Find Out", "Still No Worries", "Rack Runners", "Is It Ball in Hand"]
+
+        },
+        "031": {
+            "table_ids": ["1 & 2", "3 & 4", "5 & 6", "7 & 8"],
+            "table_values": ["A", "B", "C", "D"],
+            "team_ids": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+            "team_values": ["Diamond Cutters", "The Dream", "Tipsy CUEtips", "Wild Card", "Ballz N Chainz", "Leftovers", "WTC2", "Friend or Foe", "The Perfect Storm", "Bye"],
+            "bye_team_id": "10"
+        }
+    }
+}

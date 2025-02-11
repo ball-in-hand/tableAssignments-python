@@ -1,0 +1,55 @@
+Project Plan
+Backend (API Directory)
+Project Structure:
+Create a directory named API for all backend-related files.
+Use ASP.NET Core to set up the project with a focus on RESTful API design.
+Authentication and Authorization:
+Implement basic user authentication using JWT.
+Set up endpoints for user registration, login, and token validation.
+Entity Framework Core with SQLite:
+Use Entity Framework Core with a Code First approach to define your database schema.
+Create a new SQLite database and configure it in appsettings.json.
+Repository Pattern:
+Implement a repository pattern to abstract data access logic.
+Create interfaces and classes for each entity to handle CRUD operations.
+Error Handling and Logging:
+Implement global exception handling middleware.
+Use ASP.NET Core's built-in logging features to log errors and important events.
+6. API Documentation:
+Use Swagger/OpenAPI to document your APIs.
+Include XML comments for all public methods and classes.
+Frontend (UI Directory)
+Project Structure:
+Create a directory named UI for all frontend-related files.
+Set up a Vue.js 2.7.x project with Bootstrap Vue for UI components.
+Responsive Design:
+Implement a standard Bootstrap-based responsive design.
+Use DevExtreme components for enhanced UI functionality if needed.
+3. API Communication:
+Set up Axios or Fetch API to handle HTTP requests to the backend.
+Implement error handling and user notifications for API interactions.
+Database
+1. SQLite Configuration:
+Define your database schema using Entity Framework Core models.
+Ensure database migrations are included for easy setup and updates.
+Middleware
+1. Middleware Implementation:
+Implement middleware for logging, error handling, and authentication.
+Use ASP.NET Core's built-in middleware features effectively.
+Testing
+1. Unit and Integration Tests:
+Set up NUnit and Moq for unit testing backend logic.
+Implement integration tests for API endpoints to ensure they work as expected.
+Documentation
+README and Setup Instructions:
+Provide a comprehensive README file with setup instructions and an application overview.
+Ensure all public methods and classes have XML comments for better understanding and documentation.
+Deployment
+Platform Agnostic Deployment:
+Ensure the application is ready for deployment on any cloud platform.
+Include configuration for environment variables and secrets management.
+Additional Considerations
+Follow .NET and ASP.NET Core conventions and best practices.
+Use C# 8 features where appropriate.
+Ensure the application is secure, using HTTPS and proper CORS policies.
+Provide detailed comments and documentation throughout the codebase.

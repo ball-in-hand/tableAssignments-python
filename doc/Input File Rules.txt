@@ -1,0 +1,63 @@
+Ingest Data Rules:
+Accept a CSV file that represents a location. The file will be formatted like this:
+	Name of the file formatted like:
+		Year-Session-LocationId.csv (e.g. Year-Session-Location.csv formatted as 2025-01-Locations.csv represents 2025 Spring "Locations")
+	Header of the file:
+		Id,Name,TableCount,TableType,PhoneNumber,StAddress1,StAddress2,City,StateProvence,Zip,URL
+	Example values of the file:
+		1,Slick Willies Burnet,30,Gandy,512-451-4575,8440 Burnet Rd,,Austin,TX,78757,https://www.slickw.com/
+		2,Fast Eddies Northfork,12,Olhausen,(512) 410-4881,13945 US-183 d122,(The Hub),Austin,Tx,78717,https://fasteddiesbilliards.com/austin-northfork/
+		3,Betsy's Billiards,30,Diamond,(512) 660-5185,1901 W William Cannon Dr,,Austin,TX,78745,https://www.betsysbilliards.com/
+The application will be able to accept the filename, parse it, and store the following values: LeagueId, Year, SessionId, DivisionId, FileType
+The application will have a Location table that uses this information from the file to produce a row in the following Columns:
+LocationId (int) (Not Null), Name (varchar(max)) (Not Null), TableCapacity (int) (Not Null),TableType(varchar(max)) (Nullable),PhoneNumber(varchar(16)) (Nullable),StAddress1(varchar(max)) (Nullable),StAddress2(varchar(max)) (Nullable),City(varchar(max)) (Nullable),StateProvince(varchar(max)) (Nullable),Zip(varchar(10)) (Nullable),URL (varchar(max)) (Nullable)
+
+Accept a CSV file that represents a location's specific tables allocated for a division. The file will be formatted like this:
+	Name of the file formatted like:
+		LeagueId-Year-Session-DivisionId-Tables.csv (e.g. LeagueId-Year-Session-DivisionId-Tables.csv formatted as 787-2025-01-705-Tables.csv represents APA of Austin 2025 Spring North Forty DJ8-FE "Tables")
+	Header of the file:
+		LocationId,TableId,TableName
+	Example values of the file:
+		1,1,30
+		3,22,Waco
+
+The application will be able to accept the filename, parse it, and store the following values: Year, SessionId, LeagueId, DivisionId, FileType
+The application will have a Location table that uses this information from the file to produce a row in the following Columns:
+LeagueId (int) (not null), Year (Not Null), SessionId (int) (not null), DivisionId (varchar(max)) (Not Null), LocationId (int) (Not Null), Name (varchar(max)) (Not Null), TableCapacity (int) (Not Null),TableType(varchar(max)) (Nullable),PhoneNumber(varchar(16)) (Nullable),StAddress1(varchar(max)) (Nullable),StAddress2(varchar(max)) (Nullable),City(varchar(max)) (Nullable),StateProvince(varchar(max)) (Nullable),Zip(varchar(10)) (Nullable),URL (varchar(max)) (Nullable)
+
+Accept a CSV file that represents a set of teams within the division. The file will be formatted like this:
+	Name of the file formatted like:
+		LeagueId-Year-Session-DivisionId-Teams.csv (e.g. LeagueId-Year-Session-DivisionId-Teams.csv formatted as 787-2025-01-705-Teams.csv represents APA of Austin 2025 Spring North Forty DJ8-FE "Teams")
+	Header of the file:
+		Id,Name,LocationId,ContactNameFirst,ContactNameLast,PhoneNumber,EmailAddress
+	Example values of the file:
+		1,Elm Street Billiards Club,2,Joseph,Gains,,
+		07,Disco Inferno,2,James,DeWeese,828-360-1024,apa@aquone.com
+The application will be able to accept the filename, parse it, and store the following values: Year, LeagueId, SessionId, DivisionId, FileType
+The application will be able to accept the Id value and store the value as an integer that represents the TeamId.
+The application will have a Team table that uses this information from the file to produce a row in the following Columns:
+LeagueId (int) (not null), Year (Not Null), SessionId (int) (not null), TeamId (int) (Not Null), Name (varchar(max)) (Not Null), LocationId (int) (Not Null),ContactNameFirst(varchar(max)) (Not Null),ContactNameLast(varchar(max)) (Not Null),PhoneNumber(varchar(16)) (Nullable),EmailAddress(varchar(max)) (Nullable)
+
+Accept a CSV file that represents a schedule of team matches within a division. The file will be formatted like this:
+	Name of the file formatted like:
+		YearSessionLeagueIdDivisionIdSchedule.csv (e.g. 202501787705.csv represents 2025 Spring APA of Austin: North Forty DJ8-FE "Schedule")
+	Header of the file:
+		Date,Matchup
+	Example values of the file:
+		1/19/25,1-2
+		1/19/25,5-6
+		1/19/25,3-4
+		1/19/25,8-7
+		4/20/25,No Play
+		4/27/25,6-1
+		4/27/25,2-5
+		4/27/25,7-3
+		4/27/25,4-8
+		5/04/25,Playoff Week
+		5/11/25,Playoff Week
+The application will be able to accept the filename, parse it, and store the following values: LeagueId, Year, SessionId,  DivisionId, FileType
+The application will be able to accept the Date value as the date the match is played and store it as a date datatype.
+The application will be able to accept the Matchup value and split the value into two integers that represent the HomeTeamId and the AwayTeamId
+The application will omit any lines that have text following the date.
+The application will have a Schedule table that uses this information from the file to produce a row in the following Columns:
+LeagueId (int) (not null), Year (Not Null), SessionId (int) (not null), LocationId (int) (Not Null), ScheduleDate (Date) (Not Null), HomeTeamId (int) (Not Null), AwayTeamId (int) (Not Null)
